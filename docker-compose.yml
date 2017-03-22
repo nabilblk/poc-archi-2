@@ -1,0 +1,48 @@
+config-service:
+  image: ma.octo/config-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+  ports:
+   - 8888:8888
+discovery-service:
+  image: ma.octo/discovery-service
+  ports:
+   - 8761:8761
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+edge-service:
+  image: ma.octo/edge-service
+  ports:
+   - 9999:9999
+  links:
+   - discovery-service
+   - config-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+account-service:
+  image: ma.octo/client-service
+  links:
+   - discovery-service
+   - config-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+scope:
+  container_name: weave-scope
+  volumes:
+    - "/var/run/:/var/run:rw"
+  command:
+    - "--probe.docker"
+    - "true"
+  image: weaveworks/scope:latest
+  net: "host"
+  pid: "host"
+  ports:
+    - "4040:4040"
+  privileged: true
+  tty: true
+  labels:
+    - "works.weave.role=system"
