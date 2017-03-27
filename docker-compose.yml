@@ -9,7 +9,6 @@ services:
      - discovery-service
     environment:
      - SPRING_PROFILES_ACTIVE=docker
-     - DOCKER_IP=$DOCKER_IP
     ports:
      - 8888:8888
   discovery-service:
@@ -19,7 +18,6 @@ services:
      - 8761:8761
     environment:
      - SPRING_PROFILES_ACTIVE=docker
-     - DOCKER_IP=$DOCKER_IP
   edge-service:
     container_name: edge-service
     image: ma.octo/edge-service
@@ -32,7 +30,6 @@ services:
      - discovery-service
     environment:
      - SPRING_PROFILES_ACTIVE=docker
-     - DOCKER_IP=$DOCKER_IP
   client-service:
     container_name: client-service
     image: ma.octo/client-service
@@ -43,7 +40,6 @@ services:
      - discovery-service
     environment:
      - SPRING_PROFILES_ACTIVE=docker
-     - DOCKER_IP=$DOCKER_IP
   product-service:
     container_name: product-service
     image: ma.octo/product-service
@@ -54,7 +50,6 @@ services:
      - discovery-service
     environment:
      - SPRING_PROFILES_ACTIVE=docker
-     - DOCKER_IP=$DOCKER_IP
   scope:
     container_name: weave-scope
     volumes:
