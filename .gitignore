@@ -50,3 +50,9 @@ client-service/target/
 config-service/target/
 discovery-service/target/
 edge-service/target/
+/client-service/account-service.iml
+/client-service/client-service.iml
+/config-service/config-service.iml
+/discovery-service/discovery-service.iml
+/edge-service/edge-service.iml
+/product-service/product-service.iml
