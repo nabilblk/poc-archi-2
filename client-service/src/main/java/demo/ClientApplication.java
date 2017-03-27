@@ -3,11 +3,10 @@ package demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import javax.inject.Inject;
 import java.util.List;
 
 /**
@@ -16,17 +15,16 @@ import java.util.List;
  *
  * @author Nabil Belakbir
  */
-@SpringBootApplication
+@SpringBootApplication()
 @EnableEurekaClient
 @RestController
 public class ClientApplication {
+    @Inject
+    ClientRepo clientRepo;
 
     @RequestMapping(value = "/clients")
-    public List<String> allClients(){
-        List<String> clients = new ArrayList<>();
-        clients.add("Nabil Belakbir");
-        clients.add("Aziz Fadil");
-        return clients;
+    public List<Client> allClients(){
+        return clientRepo.findAll();
     }
 
     public static void main(String[] args) {
