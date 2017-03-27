@@ -44,3 +44,9 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+/edge-service/target/
+client-service/account-service.iml
+client-service/target/
+config-service/target/
+discovery-service/target/
+edge-service/target/

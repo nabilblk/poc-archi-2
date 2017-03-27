@@ -3,9 +3,6 @@ package demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,26 +11,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@link ClientApplication} is a cloud-native Spring Boot application that manages
+ * The {@link ProductApplication} is a cloud-native Spring Boot application that manages
  * a bounded context for @{link Customer}, @{link Account}, @{link CreditCard}, and @{link Address}
  *
- * @author Nabil Belakbir
+ * @author Kenny Bastani
+ * @author Josh Long
  */
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class ClientApplication {
+public class ProductApplication {
 
-    @RequestMapping(value = "/clients")
+    @RequestMapping(value = "/products")
     public List<String> allClients(){
-        List<String> clients = new ArrayList<>();
-        clients.add("Nabil Belakbir");
-        clients.add("Aziz Fadil");
-        return clients;
+        List<String> products = new ArrayList<>();
+        products.add("Product 1");
+        products.add("Product 2");
+        return products;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ClientApplication.class, args);
+        SpringApplication.run(ProductApplication.class, args);
     }
 
 }

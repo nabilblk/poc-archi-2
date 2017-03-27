@@ -21,6 +21,7 @@
         <module>discovery-service</module>
         <module>edge-service</module>
         <module>client-service</module>
+        <module>product-service</module>
         <!--
         <module>contrat-service</module>
         <module>vente-service</module>
