@@ -50,6 +50,16 @@ services:
      - discovery-service
     environment:
      - SPRING_PROFILES_ACTIVE=docker
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: client
   scope:
     container_name: weave-scope
     volumes:
