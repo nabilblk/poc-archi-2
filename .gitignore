@@ -57,3 +57,4 @@ edge-service/target/
 /edge-service/edge-service.iml
 /product-service/product-service.iml
 /product-service/target
+/authorization-service/target
