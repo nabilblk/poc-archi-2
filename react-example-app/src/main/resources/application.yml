@@ -1,0 +1,22 @@
+server:
+  port: 8010
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+
+auth-server: http://localhost:9999/uaa
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: react-example-app
+      client-secret: react-app-secret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: read, write
+    resource:
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key

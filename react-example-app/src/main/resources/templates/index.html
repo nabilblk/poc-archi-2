@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>You are connected</h1>
+
+    <h2>React App Here</h2>
+    <hr />
+
+
+<p>
+    From here call all your apis with this token in the Authorisation header, here is an example with cURL
+</p>
+
+<p th:inline="javascript" style="width: 600px;">
+    curl -i -H 'Authorization: Bearer [[${jwtToken}]]' http://localhost:9998/products/products
+
+</p>
+</body>
+</html>

@@ -16,20 +16,11 @@ spring:
     config:
       uri: http://localhost:8888
 
-auth-server: http://localhost:9999/uaa
 security:
-  basic:
-    enabled: false
   oauth2:
-    client:
-      client-id: demo
-      client-secret: demo
-      access-token-uri: ${auth-server}/oauth/token
-      user-authorization-uri: ${auth-server}/oauth/authorize
-      scope: read, write
     resource:
       jwt:
-        key-uri: ${auth-server}/oauth/token_key
+        key-uri: ${auth-server:http://localhost:9999/uaa}/oauth/token_key
 
 logging:
   level:

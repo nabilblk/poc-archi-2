@@ -23,6 +23,7 @@
         <module>client-service</module>
         <module>product-service</module>
         <module>authorization-service</module>
+        <module>react-example-app</module>
         <!--
         <module>contrat-service</module>
         <module>vente-service</module>
