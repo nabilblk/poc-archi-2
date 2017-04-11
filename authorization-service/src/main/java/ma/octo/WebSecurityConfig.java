@@ -1,4 +1,4 @@
-package com.example;
+package ma.octo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
