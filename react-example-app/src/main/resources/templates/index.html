@@ -19,5 +19,15 @@
     curl -i -H 'Authorization: Bearer [[${jwtToken}]]' http://localhost:9998/products/products
 
 </p>
+
+<hr />
+
+<h3>
+    Call Resource API passing by Edge
+</h3>
+<p th:inline="javascript">
+    [[${productsResult}]]
+</p>
+
 </body>
 </html>

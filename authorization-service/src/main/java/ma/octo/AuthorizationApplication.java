@@ -55,7 +55,7 @@ public class AuthorizationApplication {
             clients.inMemory()
                     .withClient("react-example-app")
                     .secret("react-app-secret")
-                    .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
+                    .authorizedGrantTypes("client_credentials", "authorization_code", "refresh_token", "implicit")
                     .scopes("read", "write")
                     .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
                     .autoApprove(true);

@@ -8,7 +8,7 @@ security:
   oauth2:
     resource:
       jwt:
-        key-uri: ${auth-server:http://localhost:9999/uaa}/oauth/token_key
+        key-uri: http://uaa.local:9999/uaa/oauth/token_key
 
 ---
 spring:

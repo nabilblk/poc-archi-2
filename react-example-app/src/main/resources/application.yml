@@ -1,12 +1,10 @@
 server:
   port: 8010
+logging:
+  level:
+    org.springframework.security: DEBUG
 
-spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    cache: false
-
-auth-server: http://localhost:9999/uaa
+auth-server: http://uaa.local:9999/uaa
 security:
   basic:
     enabled: false
@@ -18,5 +16,6 @@ security:
       user-authorization-uri: ${auth-server}/oauth/authorize
       scope: read, write
     resource:
+      edge-uri: http://product-service.local:9998
       jwt:
         key-uri: ${auth-server}/oauth/token_key
