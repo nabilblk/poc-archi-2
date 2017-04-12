@@ -24,6 +24,7 @@
         <module>product-service</module>
         <module>authorization-service</module>
         <module>react-example-app</module>
+        <module>react-example-app-2</module>
         <!--
         <module>contrat-service</module>
         <module>vente-service</module>

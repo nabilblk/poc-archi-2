@@ -1,0 +1,21 @@
+server:
+  port: 8020
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+auth-server: http://uaa.local:9999/uaa
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: react-example-app-2
+      client-secret: react-app-2-secret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: read, write
+    resource:
+      edge-uri: http://product-service.local:9998
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key

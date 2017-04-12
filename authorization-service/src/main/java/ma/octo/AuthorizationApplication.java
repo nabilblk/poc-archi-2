@@ -58,7 +58,16 @@ public class AuthorizationApplication {
                     .authorizedGrantTypes("client_credentials", "authorization_code", "refresh_token", "implicit")
                     .scopes("read", "write")
                     .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
-                    .autoApprove(true);
+                    .autoApprove(true)
+
+            .and()
+                    .withClient("react-example-app-2")
+                    .secret("react-app-2-secret")
+                    .authorizedGrantTypes("client_credentials", "authorization_code", "refresh_token", "implicit")
+                    .scopes("read", "write")
+                    .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
+                    .autoApprove(true)
+            ;
         }
 
         @Override
