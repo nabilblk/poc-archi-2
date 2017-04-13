@@ -60,13 +60,20 @@ public class AuthorizationApplication {
                     .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
                     .autoApprove(true)
 
-            .and()
+                    .and()
                     .withClient("react-example-app-2")
                     .secret("react-app-2-secret")
                     .authorizedGrantTypes("client_credentials", "authorization_code", "refresh_token", "implicit")
                     .scopes("read", "write")
                     .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
                     .autoApprove(true)
+
+            .and()
+
+                    .withClient("app-html-1") // No secret!
+                    .authorizedGrantTypes("client_credentials","password", "implicit")
+                    .scopes("read")
+                    .redirectUris("http://app-html-1.local:9090/")
             ;
         }
 

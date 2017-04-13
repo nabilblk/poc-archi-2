@@ -42,12 +42,14 @@ public class MainController {
         try {
             OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)authentication.getDetails();
             tokenValue = details.getTokenValue();
-        }catch (Exception e){
 
+            ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(resourceURI + "/products/products", Object[].class);
+            productsResponseValue = asStrings(responseEntity.getBody());
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
-        ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(resourceURI + "/products/products", Object[].class);
-        productsResponseValue = asStrings(responseEntity.getBody());
 
         model.addAttribute("jwtToken", tokenValue);
         model.addAttribute("productsResult", productsResponseValue);
