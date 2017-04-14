@@ -68,12 +68,23 @@ public class AuthorizationApplication {
                     .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
                     .autoApprove(true)
 
-            .and()
+                    .and()
 
                     .withClient("app-html-1") // No secret!
                     .authorizedGrantTypes("client_credentials","password", "implicit")
                     .scopes("read")
-                    .redirectUris("http://app-html-1.local:9090/")
+                    .redirectUris("http://app-html-1.local:9090/#/access_token?t=")
+                    .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
+                    .autoApprove(true)
+
+                    .and()
+
+                    .withClient("app-html-2") // No secret!
+                    .authorizedGrantTypes("client_credentials","password", "implicit")
+                    .scopes("read")
+                    .redirectUris("http://app-html-2.local:9090/#/access_token?t=")
+                    .accessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(1))
+                    .autoApprove(true)
             ;
         }
 
