@@ -3,6 +3,9 @@ spring:
     name: client-service
 server:
   port: 9000
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: docker

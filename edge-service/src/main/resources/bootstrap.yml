@@ -3,6 +3,9 @@ spring:
     name: edge-service
 server:
   port: 9999
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: docker

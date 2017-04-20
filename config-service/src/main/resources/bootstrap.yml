@@ -1,5 +1,8 @@
 server:
   port: 8888
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: docker

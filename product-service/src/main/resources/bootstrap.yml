@@ -3,6 +3,9 @@ spring:
     name: product-service
 server:
   port: 9001
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: docker
